@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		5DC356C921A74971008BB8FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC356C821A74971008BB8FF /* AppDelegate.swift */; };
-		5DC356CB21A74971008BB8FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC356CA21A74971008BB8FF /* ViewController.swift */; };
-		5DC356CE21A74971008BB8FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC356CC21A74971008BB8FF /* Main.storyboard */; };
 		5DC356D021A74973008BB8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC356CF21A74973008BB8FF /* Assets.xcassets */; };
 		5DC356D321A74973008BB8FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC356D121A74973008BB8FF /* LaunchScreen.storyboard */; };
+		5DC356DC21A74A39008BB8FF /* HabitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC356DA21A74A39008BB8FF /* HabitsTableViewController.swift */; };
+		5DC356DD21A74A39008BB8FF /* HabitsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DC356DB21A74A39008BB8FF /* HabitsTableViewController.xib */; };
+		5DC356E021A74A90008BB8FF /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC356DF21A74A90008BB8FF /* UIViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5DC356C521A74971008BB8FF /* Habitual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitual.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC356C821A74971008BB8FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5DC356CA21A74971008BB8FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5DC356CD21A74971008BB8FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DC356CF21A74973008BB8FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DC356D221A74973008BB8FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DC356D421A74973008BB8FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DC356DA21A74A39008BB8FF /* HabitsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsTableViewController.swift; sourceTree = "<group>"; };
+		5DC356DB21A74A39008BB8FF /* HabitsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HabitsTableViewController.xib; sourceTree = "<group>"; };
+		5DC356DF21A74A90008BB8FF /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		5DC356BC21A74971008BB8FF = {
 			isa = PBXGroup;
 			children = (
+				5DC356DF21A74A90008BB8FF /* UIViewControllerExtensions.swift */,
 				5DC356C721A74971008BB8FF /* Habitual */,
 				5DC356C621A74971008BB8FF /* Products */,
 			);
@@ -55,13 +58,21 @@
 			isa = PBXGroup;
 			children = (
 				5DC356C821A74971008BB8FF /* AppDelegate.swift */,
-				5DC356CA21A74971008BB8FF /* ViewController.swift */,
-				5DC356CC21A74971008BB8FF /* Main.storyboard */,
+				5DC356DE21A74A43008BB8FF /* Views */,
 				5DC356CF21A74973008BB8FF /* Assets.xcassets */,
 				5DC356D121A74973008BB8FF /* LaunchScreen.storyboard */,
 				5DC356D421A74973008BB8FF /* Info.plist */,
 			);
 			path = Habitual;
+			sourceTree = "<group>";
+		};
+		5DC356DE21A74A43008BB8FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5DC356DA21A74A39008BB8FF /* HabitsTableViewController.swift */,
+				5DC356DB21A74A39008BB8FF /* HabitsTableViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +134,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DC356D321A74973008BB8FF /* LaunchScreen.storyboard in Resources */,
+				5DC356DD21A74A39008BB8FF /* HabitsTableViewController.xib in Resources */,
 				5DC356D021A74973008BB8FF /* Assets.xcassets in Resources */,
-				5DC356CE21A74971008BB8FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DC356CB21A74971008BB8FF /* ViewController.swift in Sources */,
+				5DC356DC21A74A39008BB8FF /* HabitsTableViewController.swift in Sources */,
+				5DC356E021A74A90008BB8FF /* UIViewControllerExtensions.swift in Sources */,
 				5DC356C921A74971008BB8FF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,14 +155,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5DC356CC21A74971008BB8FF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5DC356CD21A74971008BB8FF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5DC356D121A74973008BB8FF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -285,6 +289,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7Y8QKEC95;
 				INFOPLIST_FILE = Habitual/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +308,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7Y8QKEC95;
 				INFOPLIST_FILE = Habitual/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
