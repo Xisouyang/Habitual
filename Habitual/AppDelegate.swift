@@ -25,8 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainViewController = HabitsTableViewController.instantiate()
         navigationController.setViewControllers([mainViewController], animated: false)
         
-        // Tell the window to load the main controller as it's root view
-        window!.rootViewController = mainViewController
+        /* Tell the window to load the nav controller as it's root view.
+           we set the nav controller to display the mainViewController, so that will
+           be the first view displayed.
+        */
+        window!.rootViewController = navigationController
         window!.makeKeyAndVisible()
         
         return true

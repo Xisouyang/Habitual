@@ -60,12 +60,10 @@ extension HabitsTableViewController {
     
     func setupNavBar() {
         title = "Habitual"
-//        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddHabit(_:)))
-//        self.navigationItem.rightBarButtonItem = addButton
-        var b = UIBarButtonItem(title: "Continue", style: .plain, target: self, action:nil)
-        self.navigationItem.rightBarButtonItem = b
-        print("hi")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddHabit(_:)))
+        self.navigationItem.rightBarButtonItem = addButton
     }
+ 
     
     @objc func pressAddHabit(_ sender: UIBarButtonItem) {
         print("hi")
