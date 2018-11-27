@@ -11,10 +11,10 @@ import UIKit
 class HabitsTableViewController: UITableViewController {
     
     var Habits: [Habit] = [
-        Habit(title: "Go to bed at 2am after partying", selectedImage: Habit.Images.book),
-        Habit(title: "Don't drink any water", selectedImage: Habit.Images.book),
-        Habit(title: "Always laze around", selectedImage: Habit.Images.book),
-        Habit(title: "Just be a potato", selectedImage: Habit.Images.book)
+        Habit(title: "Go to bed at 2am after partying", image: Habit.Images.book),
+        Habit(title: "Don't drink any water", image: Habit.Images.book),
+        Habit(title: "Always laze around", image: Habit.Images.book),
+        Habit(title: "Just be a potato", image: Habit.Images.book)
     ]
     
     // return the number of rows for the given section

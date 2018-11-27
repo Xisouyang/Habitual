@@ -23,7 +23,7 @@ class HabitTableViewCell: UITableViewCell {
     }
     
     func configure(_ habit: Habit) {
-        self.imageViewIcon.image = habit.selectedImage.image
+        self.imageViewIcon.image = UIImage(named: "food.png")
         self.labelHabitTitle.text = habit.title
         self.labelStreaks.text = "streak: \(habit.currentStreak)"
         
@@ -34,7 +34,6 @@ class HabitTableViewCell: UITableViewCell {
         }
     }
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

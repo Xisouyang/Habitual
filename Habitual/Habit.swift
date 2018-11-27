@@ -51,8 +51,8 @@ struct Habit {
         return lastCompletionDate?.isToday ?? false
     }
     
-    init(title: String, selectedImage: Habit.Images) {
+    init(title: String, image: Habit.Images) {
         self.title = title
-        self.selectedImage = selectedImage
+        self.selectedImage = image
     }
 }
