@@ -22,6 +22,7 @@ class HabitTableViewCell: UITableViewCell {
         return UINib(nibName: String(describing: self), bundle: nil)
     }
     
+    //function to update cell properties
     func configure(_ habit: Habit) {
         self.imageViewIcon.image = UIImage(named: "food.png")
         self.labelHabitTitle.text = habit.title
