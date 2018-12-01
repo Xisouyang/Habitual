@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-struct Habit {
+struct Habit: Codable {
     
-    enum Images: Int, CaseIterable {
+    enum Images: Int, Codable, CaseIterable {
         case book
         case bulb
         case clock
@@ -45,7 +45,7 @@ struct Habit {
     
     let title: String
     let dateCreated: Date = Date()
-    let lastCompletionDate: Date? = Date()
+    var lastCompletionDate: Date? = Date()
 
     var hasCompletedToday: Bool {
         return lastCompletionDate?.isToday ?? false
