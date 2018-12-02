@@ -10,18 +10,19 @@ import UIKit
 
 class HabitsTableViewController: UITableViewController {
     
+    private var persistence = PersistenceLayer()
     
     //creating array for Habits
-    var Habits: [Habit] = [
-        Habit(title: "Go to bed at 2am after partying", image: Habit.Images.book),
-        Habit(title: "Don't drink any water", image: Habit.Images.book),
-        Habit(title: "Always laze around", image: Habit.Images.book),
-        Habit(title: "Just be a potato", image: Habit.Images.book),
-    ]
+//    var Habits: [Habit] = [
+//        Habit(title: "Go to bed at 2am after partying", image: Habit.Images.book),
+//        Habit(title: "Don't drink any water", image: Habit.Images.book),
+//        Habit(title: "Always laze around", image: Habit.Images.book),
+//        Habit(title: "Just be a potato", image: Habit.Images.book),
+//    ]
     
     // return the number of rows for the given section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Habits.count
+        return persistence.habits.count
     }
     
     // return the UITableViewCell for the given indexPath
@@ -45,7 +46,7 @@ class HabitsTableViewController: UITableViewController {
         ) as! HabitTableViewCell
         
         //configures the newly created cell to have a specific habit
-        let habit = Habits[indexPath.row]
+        let habit = persistence.habits[indexPath.row]
         cell.configure(habit)
         
         return cell
@@ -64,6 +65,16 @@ class HabitsTableViewController: UITableViewController {
 
         // Do any additional setup after loading the view.
         setupNavBar()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //load new habits
+        persistence.setNeedsToReloadHabits()
+        
+        //reload tableView
+        tableView.reloadData()
     }
     
     /*
@@ -98,5 +109,17 @@ extension HabitsTableViewController {
     
     @objc func pressAddHabit(_ sender: UIBarButtonItem) {
         print("Clicked")
+        
+//        //create instance of our AddHabitViewController
+//        let addHabitVC = AddHabitViewController.instantiate()
+//
+//        //embed AddHabitViewController to the navigation controller
+//        let navigationController = UINavigationController(rootViewController: addHabitVC)
+//
+//        //present
+//        present(navigationController, animated: true, completion: nil)
+        let addHabitVc = AddHabitViewController.instantiate()
+        let navigationController = UINavigationController(rootViewController: addHabitVc)
+        present(navigationController, animated: true, completion: nil)
     }
 }
