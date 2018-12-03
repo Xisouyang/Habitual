@@ -23,6 +23,7 @@ class AddHabitViewController: UIViewController {
         collectionViewObj.register(HabitImageCollectionViewCell.nib, forCellWithReuseIdentifier: HabitImageCollectionViewCell.identifier)
         addCVConstraints()
         addButtonConstraints()
+        
         setupNavBar()
         
 
