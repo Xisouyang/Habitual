@@ -28,17 +28,6 @@ class HabitsTableViewController: UITableViewController {
     // return the UITableViewCell for the given indexPath
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        var cell: UITableViewCell
-//
-//        if let dequeueCell = tableView.dequeueReusableCell(withIdentifier: "cell") {
-//            cell = dequeueCell
-//        } else {
-//            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-//        }
-//        let habitName = Habits[indexPath.row]
-//        cell.textLabel?.text = habitName.title
-//        return cell
-        
         //creating cells of type HabitsTableViewCell
         let cell = tableView.dequeueReusableCell(
             withIdentifier: HabitTableViewCell.identifier,
@@ -97,29 +86,21 @@ extension HabitsTableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddHabit(_:)))
         self.navigationItem.rightBarButtonItem = addButton
     }
- 
-    
-    //inserts "hello world" cell to the top of the tableview
-//    @objc func pressAddHabit(_ sender: UIBarButtonItem) {
-//        print("hi")
-//        instructorArr.insert("Hello, World!", at: 0)
-//        let topIndexPath = IndexPath(row: 0, section: 0)
-//        tableView.insertRows(at: [topIndexPath], with: .automatic)
-//    }
     
     @objc func pressAddHabit(_ sender: UIBarButtonItem) {
         print("Clicked")
         
-//        //create instance of our AddHabitViewController
-//        let addHabitVC = AddHabitViewController.instantiate()
-//
-//        //embed AddHabitViewController to the navigation controller
-//        let navigationController = UINavigationController(rootViewController: addHabitVC)
-//
-//        //present
-//        present(navigationController, animated: true, completion: nil)
-        let addHabitVc = AddHabitViewController.instantiate()
-        let navigationController = UINavigationController(rootViewController: addHabitVc)
+        //create instance of our AddHabitViewController
+        let addHabitVC = AddHabitViewController.instantiate()
+
+        //embed AddHabitViewController to the navigation controller
+        let navigationController = UINavigationController(rootViewController: addHabitVC)
+
+        //present
         present(navigationController, animated: true, completion: nil)
+        
+//        let addHabitVc = AddHabitViewController.instantiate()
+//        let navigationController = UINavigationController(rootViewController: addHabitVc)
+//        present(navigationController, animated: true, completion: nil)
     }
 }

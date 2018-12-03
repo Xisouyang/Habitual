@@ -44,6 +44,9 @@
                     <color key="backgroundColor" red="0.076685495670000006" green="0.47192865610000001" blue="0.96561425919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Pick Photo"/>
+                    <connections>
+                        <action selector="pickPhotoButtonPressed:" destination="-1" eventType="touchUpInside" id="aTh-X5-aUu"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

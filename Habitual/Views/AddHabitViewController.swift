@@ -8,30 +8,36 @@
 
 import UIKit
 
-class AddHabitViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class AddHabitViewController: UIViewController {
     
     @IBOutlet weak var collectionViewObj: UICollectionView!
     @IBOutlet weak var pickPhotoButton: UIButton!
+    let habitImages = Habit.Images.allCases
     
+    @IBAction func pickPhotoButtonPressed(_ sender: UIButton) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionViewObj.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionViewObj.register(HabitImageCollectionViewCell.nib, forCellWithReuseIdentifier: HabitImageCollectionViewCell.identifier)
         addCVConstraints()
         addButtonConstraints()
+        setupNavBar()
         
 
         // Do any additional setup after loading the view.
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+    func setupNavBar() {
+        title = "Select Image"
+        
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAddHabit(_:)))
+        navigationItem.leftBarButtonItem = cancelButton
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionViewObj.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        
-        return cell
+    @objc func cancelAddHabit(_ sender: UIBarButtonItem) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 
 
@@ -47,15 +53,33 @@ class AddHabitViewController: UIViewController, UICollectionViewDelegate, UIColl
 
 }
 
-extension AddHabitViewController {
+extension AddHabitViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return habitImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionViewObj.dequeueReusableCell(withReuseIdentifier: HabitImageCollectionViewCell.identifier, for: indexPath) as! HabitImageCollectionViewCell
+        
+        cell.setImage(image: habitImages[indexPath.row].image)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width
+        return CGSize(width: collectionViewWidth/4, height: collectionViewWidth/4)
+    }
     
     func addCVConstraints() {
         
         collectionViewObj.translatesAutoresizingMaskIntoConstraints = false
         collectionViewObj.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         collectionViewObj.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
-//        collectionViewObj.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15).isActive = true
-//        collectionViewObj.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 15).isActive = true
         collectionViewObj.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.85).isActive = true
         collectionViewObj.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -15).isActive = true
     }
@@ -70,3 +94,6 @@ extension AddHabitViewController {
         
     }
 }
+
+//        collectionViewObj.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15).isActive = true
+//        collectionViewObj.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 15).isActive = true
