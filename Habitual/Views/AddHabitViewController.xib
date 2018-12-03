@@ -12,33 +12,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddHabitViewController" customModule="Habitual" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="emT-t1-ihb" id="kle-4z-nTa"/>
+                <outlet property="collectionViewObj" destination="ndk-aF-M6O" id="cGh-G9-67e"/>
+                <outlet property="pickPhotoButton" destination="WAC-Y5-yi7" id="nOp-wE-IOR"/>
+                <outlet property="view" destination="7UF-1r-zxb" id="hug-O0-yqC"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="emT-t1-ihb">
+        <view contentMode="scaleToFill" id="7UF-1r-zxb">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gDa-zK-Fbl">
-                    <rect key="frame" x="67" y="202" width="240" height="128"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ndk-aF-M6O">
+                    <rect key="frame" x="67" y="270" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oIm-sc-BCm">
+                    <color key="backgroundColor" red="0.86155181194537189" green="0.86335015777954427" blue="0.89965187823834203" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <viewLayoutGuide key="safeArea" id="GYM-NP-IbR"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ti1-Hk-bl8">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="QsL-00-Bfi"/>
-                        <outlet property="delegate" destination="-1" id="TR7-3b-l1l"/>
+                        <outlet property="dataSource" destination="-1" id="w7a-rJ-Xqs"/>
+                        <outlet property="delegate" destination="-1" id="S7F-Jq-Hle"/>
                     </connections>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAC-Y5-yi7">
+                    <rect key="frame" x="150" y="563" width="74" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.076685495670000006" green="0.47192865610000001" blue="0.96561425919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Pick Photo"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <viewLayoutGuide key="safeArea" id="OC6-ys-HKv"/>
-            <point key="canvasLocation" x="243" y="59"/>
+            <viewLayoutGuide key="safeArea" id="tVy-Vh-53z"/>
+            <point key="canvasLocation" x="735" y="-431"/>
         </view>
     </objects>
 </document>

@@ -8,16 +8,30 @@
 
 import UIKit
 
-class AddHabitViewController: UIViewController {
+class AddHabitViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    @IBOutlet weak var collectionViewObj: UICollectionView!
+    @IBOutlet weak var pickPhotoButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hi")
-        
-//        addHabitViewConstraints()
+        collectionViewObj.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        addCVConstraints()
+        addButtonConstraints()
         
 
         // Do any additional setup after loading the view.
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionViewObj.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        
+        return cell
     }
 
 
@@ -34,39 +48,25 @@ class AddHabitViewController: UIViewController {
 }
 
 extension AddHabitViewController {
-//    func addHabitViewConstraints() {
-//        collectionViewObj.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        let height = NSLayoutConstraint(item: collectionViewObj,
-//                                        attribute: .height,
-//                                        relatedBy: .equal,
-//                                        toItem: view,
-//                                        attribute: .height,
-//                                        multiplier: 0.75,
-//                                        constant: 0)
-//        
-//        let trailing = NSLayoutConstraint(item: collectionViewObj,
-//                                          attribute: .trailing,
-//                                          relatedBy: .equal,
-//                                          toItem: view,
-//                                          attribute: .trailing,
-//                                          multiplier: 1,
-//                                          constant: 15)
-//        let leading = NSLayoutConstraint(item: collectionViewObj,
-//                                          attribute: .leading,
-//                                          relatedBy: .equal,
-//                                          toItem: view,
-//                                          attribute: .leading,
-//                                          multiplier: 1,
-//                                          constant: 15)
-//        let top = NSLayoutConstraint(item: collectionViewObj,
-//                                          attribute: .top,
-//                                          relatedBy: .equal,
-//                                          toItem: view,
-//                                          attribute: .top,
-//                                          multiplier: 1,
-//                                          constant: 15)
-//        
-//        NSLayoutConstraint.activate([height, trailing, leading, top])
-//    }
+    
+    func addCVConstraints() {
+        
+        collectionViewObj.translatesAutoresizingMaskIntoConstraints = false
+        collectionViewObj.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        collectionViewObj.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
+//        collectionViewObj.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15).isActive = true
+//        collectionViewObj.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 15).isActive = true
+        collectionViewObj.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.85).isActive = true
+        collectionViewObj.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -15).isActive = true
+    }
+    
+    func addButtonConstraints() {
+        
+        pickPhotoButton.translatesAutoresizingMaskIntoConstraints = false
+        pickPhotoButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        pickPhotoButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        pickPhotoButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -15).isActive = true
+        pickPhotoButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+    }
 }
