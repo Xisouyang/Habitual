@@ -21,6 +21,7 @@ class AddHabitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewObj.register(HabitImageCollectionViewCell.nib, forCellWithReuseIdentifier: HabitImageCollectionViewCell.identifier)
+        collectionViewObj.allowsMultipleSelection = false
         addCVConstraints()
         addButtonConstraints()
         
@@ -74,6 +75,17 @@ extension AddHabitViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width
         return CGSize(width: collectionViewWidth/4, height: collectionViewWidth/4)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 2.0
+        cell?.layer.borderColor = UIColor.blue.cgColor
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 0
     }
     
     func addCVConstraints() {
