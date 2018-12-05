@@ -16,6 +16,15 @@ class AddHabitViewController: UIViewController {
     
     @IBAction func pickPhotoButtonPressed(_ sender: UIButton) {
         
+        //choose the item selected
+        guard let selectedIndexPath = collectionViewObj.indexPathsForSelectedItems?.first else { return }
+        
+        //instantiate new view controller
+        let confirmHabitVC = ConfirmHabitViewController.instantiate()
+        
+        confirmHabitVC.habitImage = habitImages[selectedIndexPath.row]
+        navigationController?.pushViewController(confirmHabitVC, animated: true)
+        
     }
     
     override func viewDidLoad() {

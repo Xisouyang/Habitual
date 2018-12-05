@@ -12,14 +12,6 @@ class HabitsTableViewController: UITableViewController {
     
     private var persistence = PersistenceLayer()
     
-    //creating array for Habits
-//    var Habits: [Habit] = [
-//        Habit(title: "Go to bed at 2am after partying", image: Habit.Images.book),
-//        Habit(title: "Don't drink any water", image: Habit.Images.book),
-//        Habit(title: "Always laze around", image: Habit.Images.book),
-//        Habit(title: "Just be a potato", image: Habit.Images.book),
-//    ]
-    
     // return the number of rows for the given section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return persistence.habits.count
@@ -98,9 +90,14 @@ extension HabitsTableViewController {
 
         //present
         present(navigationController, animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let addHabitVc = AddHabitViewController.instantiate()
-//        let navigationController = UINavigationController(rootViewController: addHabitVc)
-//        present(navigationController, animated: true, completion: nil)
+        let selectedHabit = persistence.habits[indexPath.row]
+        let habitDetailedVc = HabitDetailedViewController.instantiate()
+        habitDetailedVc.habit = selectedHabit
+        habitDetailedVc.habitIndex = indexPath.row
+        navigationController?.pushViewController(habitDetailedVc, animated: true)
     }
 }

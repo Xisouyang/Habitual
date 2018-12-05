@@ -23,15 +23,15 @@ class HabitImageCollectionViewCell: UICollectionViewCell {
     // sets specific image to be used in methods in the AddHabitVC class
     func setImage(image: UIImage) {
         
-        habitImageConstraints()
         self.habitImage.image = image
+        habitImageConstraints()
     }
 }
 
 extension HabitImageCollectionViewCell {
     
     func habitImageConstraints() {
-        
+
         habitImage.translatesAutoresizingMaskIntoConstraints = false
 
         habitImage.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 1).isActive = true
