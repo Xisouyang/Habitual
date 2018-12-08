@@ -88,6 +88,7 @@ struct PersistenceLayer {
          If yes - return that habit
          If no - increment the number of completions for it by 1
          */
+        print(updatedHabit.hasCompletedToday)
         guard updatedHabit.hasCompletedToday == false else {return updatedHabit}
         updatedHabit.numberOfCompletions += 1
         

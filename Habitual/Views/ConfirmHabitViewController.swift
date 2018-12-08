@@ -23,7 +23,6 @@ class ConfirmHabitViewController: UIViewController {
         updateUI()
         addButtonConstraints()
         textFieldConstraint()
-        imageConstraint()
     }
     
     private func updateUI() {
@@ -52,20 +51,22 @@ class ConfirmHabitViewController: UIViewController {
 extension ConfirmHabitViewController {
     
     func imageConstraint() {
-        habitImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        habitImageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        habitImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        
-        let width = NSLayoutConstraint(item: self.habitImageView, attribute: .width, relatedBy: .equal, toItem: self.habitImageView, attribute: .height, multiplier: 1, constant: 0)
-        let height = NSLayoutConstraint(item: self.habitImageView, attribute: .height, relatedBy: .equal, toItem: self.habitImageView, attribute: .width, multiplier: 1, constant: 0)
-        
-        NSLayoutConstraint.activate([width, height])
+//        habitImageView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        habitImageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+//        habitImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+//
+//        let width = NSLayoutConstraint(item: self.habitImageView, attribute: .width, relatedBy: .equal, toItem: self.habitImageView, attribute: .height, multiplier: 1, constant: 0)
+//        let height = NSLayoutConstraint(item: self.habitImageView, attribute: .height, relatedBy: .equal, toItem: self.habitImageView, attribute: .width, multiplier: 1, constant: 0)
+//
+//        NSLayoutConstraint.activate([width, height])
+       
     }
     
     func addButtonConstraints() {
 
         createHabitButton.translatesAutoresizingMaskIntoConstraints = false
+        
         createHabitButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
         createHabitButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         createHabitButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -15).isActive = true
@@ -75,6 +76,9 @@ extension ConfirmHabitViewController {
     func textFieldConstraint() {
         
         habitNameInputField.translatesAutoresizingMaskIntoConstraints = false
+        
+        habitNameInputField.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        habitNameInputField.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 20).isActive = true
         habitNameInputField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8).isActive = true
     }
 }

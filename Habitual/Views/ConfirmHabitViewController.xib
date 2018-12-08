@@ -14,7 +14,7 @@
             <connections>
                 <outlet property="createHabitButton" destination="Wgk-IF-74j" id="AVZ-xf-lVX"/>
                 <outlet property="habitImageView" destination="n8b-xl-Q54" id="8lq-3L-jz9"/>
-                <outlet property="habitNameInputField" destination="ZYA-UT-f0O" id="ubp-KQ-xks"/>
+                <outlet property="habitNameInputField" destination="ZYA-UT-f0O" id="Lzn-hd-adi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,30 +34,33 @@
                         <action selector="createHabitButtonPressed:" destination="-1" eventType="touchUpInside" id="mwL-Ym-gGv"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="YWH-Ic-k0R">
-                    <rect key="frame" x="99" y="265" width="178" height="82.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of the New Habit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zv-te-58B">
+                    <rect key="frame" x="98" y="323" width="178" height="20.5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of the New Habit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zv-te-58B">
-                            <rect key="frame" x="0.0" y="0.0" width="178" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Habit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZYA-UT-f0O">
-                            <rect key="frame" x="32" y="52.5" width="114" height="30"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                    </subviews>
-                </stackView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-xl-Q54">
-                    <rect key="frame" x="99" y="42" width="200" height="200"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Habit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZYA-UT-f0O">
+                    <rect key="frame" x="130" y="277" width="114" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-xl-Q54">
+                    <rect key="frame" x="87.5" y="50" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="O2o-us-wMy"/>
+                        <constraint firstAttribute="height" constant="200" id="bFf-Ty-Ohj"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="n8b-xl-Q54" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="3P7-m1-87O"/>
+                <constraint firstItem="n8b-xl-Q54" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="TIe-fc-sTH"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
         </view>
