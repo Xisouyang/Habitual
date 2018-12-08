@@ -10,11 +10,11 @@ import UIKit
 
 class HabitsTableViewController: UITableViewController {
     
-    private var persistence = PersistenceLayer()
+    private var persistance = PersistanceLayer()
     
     // return the number of rows for the given section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return persistence.habits.count
+        return persistance.habits.count
     }
     
     // return the UITableViewCell for the given indexPath
@@ -27,7 +27,7 @@ class HabitsTableViewController: UITableViewController {
         ) as! HabitTableViewCell
         
         //configures the newly created cell to have a specific habit
-        let habit = persistence.habits[indexPath.row]
+        let habit = persistance.habits[indexPath.row]
         cell.configure(habit)
         
         return cell
@@ -52,7 +52,7 @@ class HabitsTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         
         //load new habits
-        persistence.setNeedsToReloadHabits()
+        persistance.setNeedsToReloadHabits()
         
         //reload tableView
         tableView.reloadData()
@@ -77,6 +77,8 @@ extension HabitsTableViewController {
         title = "Habitual"
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddHabit(_:)))
         self.navigationItem.rightBarButtonItem = addButton
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
+
     }
     
     @objc func pressAddHabit(_ sender: UIBarButtonItem) {
@@ -94,10 +96,29 @@ extension HabitsTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedHabit = persistence.habits[indexPath.row]
+        let selectedHabit = persistance.habits[indexPath.row]
         let habitDetailedVc = HabitDetailedViewController.instantiate()
         habitDetailedVc.habit = selectedHabit
         habitDetailedVc.habitIndex = indexPath.row
         navigationController?.pushViewController(habitDetailedVc, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let habitToDelete = persistance.habits[indexPath.row]
+            let habitIndexToDelete = indexPath.row
+            
+            // handling the delete action
+            let deleteAlert = UIAlertController(habitTitle: habitToDelete.title) {
+                self.persistance.delete(habitIndexToDelete)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            
+            self.present(deleteAlert, animated: true)
+            
+        default:
+            break
+        }
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PersistenceLayer {
+struct PersistanceLayer {
     
     /* set allows us to write to our array of habits
        private means only this file will see the habit variable
@@ -31,7 +31,7 @@ struct PersistenceLayer {
         
         guard
             //grab array of habits from our user defaults for given key
-            let habitData = userDefaults.data(forKey: PersistenceLayer.userDefaultHabitsKeyValue),
+            let habitData = userDefaults.data(forKey: PersistanceLayer.userDefaultHabitsKeyValue),
             
             //Decode the json data that it gives us into a swift Habit object
             let habits = try? JSONDecoder().decode([Habit].self, from: habitData)
@@ -64,7 +64,7 @@ struct PersistenceLayer {
         
         //set JSON data inside User Defaults with given key
         let userDefaults = UserDefaults.standard
-        userDefaults.set(habitData, forKey: PersistenceLayer.userDefaultHabitsKeyValue)
+        userDefaults.set(habitData, forKey: PersistanceLayer.userDefaultHabitsKeyValue)
     }
     
     // delete habit

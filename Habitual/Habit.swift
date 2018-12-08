@@ -45,7 +45,7 @@ struct Habit: Codable {
     
     let title: String
     let dateCreated: Date = Date()
-    var lastCompletionDate: Date? 
+    var lastCompletionDate: Date?
 
     var hasCompletedToday: Bool {
         return lastCompletionDate?.isToday ?? false

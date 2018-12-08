@@ -10,7 +10,7 @@ import UIKit
 
 class HabitDetailedViewController: UIViewController {
     
-    private var persistance = PersistenceLayer()
+    private var persistance = PersistanceLayer()
     
     @IBOutlet weak var stackTitles: UIStackView!
     @IBOutlet weak var stackValues: UIStackView!
